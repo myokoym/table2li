@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require "nokogiri"
+
+source = Nokogiri::HTML.parse(ARGF.read)
+
+header = source.xpath('//tr/th').map do |th|
+  th.inner_text
+end
+
+fragment = Nokogiri::HTML.fragment("")
+
+builder = Nokogiri::HTML::Builder.with(fragment) do |doc|
+  doc.ul {
+    source.xpath('//tr[td]').each_with_index do |tr, i|
+      doc.li {
+        doc.text i + 1
+        tr.xpath('td').each_with_index do |td, i|
+          doc.ul {
+            doc.li {
+              if header[i]
+                doc.text header[i]
+                doc.ul {
+                  doc.li {
+                    doc.text td.inner_text
+                  }
+                }
+              else
+                doc.text td.inner_text
+              end
+            }
+          }
+        end
+      }
+    end
+  }
+end
+
+puts fragment.to_html
