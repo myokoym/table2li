@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{A HTML to HTML converter. Converts from table to list. }
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/myokoym/table2li"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
