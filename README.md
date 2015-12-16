@@ -1,5 +1,7 @@
 # Table2li
 
+[![Gem Version](https://badge.fury.io/rb/table2li.svg)](http://badge.fury.io/rb/table2li)
+
 A HTML to HTML converter. Converts from table to list.
 
 ## Installation
