@@ -8,7 +8,11 @@ A HTML to HTML converter. Converts from table to list.
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ table2li table.html
+
+Or
+
+    $ cat table.html | table2li
 
 ## Exapmle
 
